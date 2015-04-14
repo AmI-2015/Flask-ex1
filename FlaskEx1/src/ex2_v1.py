@@ -1,6 +1,5 @@
 from flask import Flask
-from flask import render_template, request, session, url_for
-from werkzeug import redirect
+from flask import render_template, request, session, url_for, redirect
 
 app = Flask(__name__)
 app.secret_key = 'whoknowsthissecretw'
@@ -17,7 +16,7 @@ def about():
 def login():
     user = request.form['user']
     session['user'] = user
-    return render_template('welcome.html', user=user)
+    return render_template('welcome.html', user_name=user)
 
 @app.route('/logout')
 def logout():
